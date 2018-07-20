@@ -94,7 +94,7 @@ try {
 
     // Create RSS
     $root = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
-    $rss = new SimpleXMLElement('<rss><channel><title>RSS Merger</title><description>A PHP tool to merge multiple RSS streams into one output.</description><link>' . $root . '</link><atom:link href="' . (rtrim($root, "/") . $_SERVER["REQUEST_URI"]) . '" rel="self" type="application/rss+xml" /></channel></rss>');
+    $rss = new SimpleXMLElement('<rss><channel><title>RSS Merger</title><description>A PHP tool to merge multiple RSS streams into one output.</description><link>' . $root . '</link></channel></rss>');
     $rss->addAttribute('version', '2.0');
     foreach ($feeds as $feed) {
         sxml_append($rss->channel, $feed);
